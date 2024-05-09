@@ -4,24 +4,24 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Person {
-    private int id;
+    private int person_id;
     private String name;
     private int year_of_birth;
 
     public Person(){}
 
-    public Person(int id, String name, int year_of_birth){
-        this.id = id;
+    public Person(int person_id, String name, int year_of_birth){
+        this.person_id = person_id;
         this.name = name;
         this.year_of_birth = year_of_birth;
     }
 
-    public int getId() {
-        return id;
+    public int getPerson_id() {
+        return person_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPerson_id(int person_id) {
+        this.person_id = person_id;
     }
 
     public String getName() {
@@ -39,4 +39,5 @@ public class Person {
     public void setYear_of_birth(int year_of_birth) {
         this.year_of_birth = year_of_birth;
     }
+
 }
