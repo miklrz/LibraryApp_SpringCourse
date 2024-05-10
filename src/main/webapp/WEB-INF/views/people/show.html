@@ -8,6 +8,9 @@
     <p th:text="'Name: '+ ${person.getName()}">name</p>
     <p th:text="'Year of birth: '+ ${person.getYear_of_birth()}">year</p>
     <a th:href="@{/people/{id}/edit(id=${person.getPerson_id()})}" th:text="Edit">edit</a>
+    <form th:method="DELETE" th:action="@{/people/{person_id}(person_id=${person.getPerson_id()})}" th:object = "${person}">
+        <input type="submit" value="delete!">
+    </form>
     <hr>
     <a href = "/people">Get back</a>
 </body>
