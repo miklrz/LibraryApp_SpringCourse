@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+</head>
+<body>
+    <p th:text="'Title: ' + ${book.getTitle()}">title</p>
+    <p th:text="'Author: ' + ${book.getAuthor()}">author</p>
+    <p th:text="'Year: ' + ${book.getYear()}">year</p>
+    <p th:text="'Book_id: ' + ${book.getBook_id()}">book_id</p>
+    <p th:text="'Person_id: ' + ${book.getPerson_id()}">person_id</p>
+    <hr>
+    <a href = "/books">Get back!</a>
+</body>
+</html>
