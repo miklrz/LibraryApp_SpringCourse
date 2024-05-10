@@ -14,6 +14,8 @@ public class Book {
     public Book(){}
 
     public Book(int book_id, int person_id, String title, String author, int year) {
+        this.book_id = book_id;
+        this.person_id = person_id;
         this.title = title;
         this.author = author;
         this.year = year;

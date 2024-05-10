@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Books</title>
@@ -9,5 +9,7 @@
         <a th:href ="@{/books/{book_id}(book_id=${book.getBook_id()})}"
            th:text="'Title: ' + ${book.getTitle()} + ', Author: ' + ${book.getAuthor()}">book</a>
     </div>
+    <hr>
+    <a href="/books/new">New book</a>
 </body>
 </html>
