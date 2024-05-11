@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "https://thymeleaf.org">
+<html lang="en" xmlns:th = "https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Person</title>
@@ -7,7 +7,8 @@
 <body>
     <p th:text="'Name: '+ ${person.getName()}">name</p>
     <p th:text="'Year of birth: '+ ${person.getYear_of_birth()}">year</p>
-    <a th:href="@{/people/{id}/edit(id=${person.getPerson_id()})}" th:text="Edit">edit</a><br>
+    <a th:href="@{/people/{id}/edit(id=${person.getPerson_id()})}" th:text="Edit">edit</a>
+    <hr>
     <form th:method="DELETE" th:action="@{/people/{person_id}(person_id=${person.getPerson_id()})}" th:object = "${person}">
         <input type="submit" value="delete!">
     </form>

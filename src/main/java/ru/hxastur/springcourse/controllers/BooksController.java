@@ -43,21 +43,21 @@ public class BooksController {
         return "redirect:/books";
     }
 
-//    @GetMapping("/{book_id}/edit")
-//    public String edit(){
-//        return null;
-//    }
-//
-//    @PatchMapping
-//    public String update(){
-//        return null;
-//
-//    }
-//
-//    @DeleteMapping
-//    public String delete(){
-//        return null;
-//
-//    }
+    @GetMapping("/{book_id}/edit")
+    public String edit(Model model,@ModelAttribute Book book){
+        model.addAttribute("people", personDAO.index());
+        return "/books/edit";
+    }
 
+    @PatchMapping("/{book_id}")
+    public String update(@ModelAttribute Book book, @PathVariable("book_id") int book_id){
+        bookDAO.update(book,book_id);
+        return "redirect:/books";
+    }
+
+    @DeleteMapping("/{book_id}")
+    public String delete(@PathVariable("book_id") int book_id){
+        bookDAO.delete(book_id);
+        return "redirect:/books";
+    }
 }
