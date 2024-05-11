@@ -5,6 +5,9 @@
     <title>People</title>
 </head>
 <body>
+<h3>
+    List of people:
+</h3>
     <div th:each ="person : ${people}">
         <a th:text="${person.getName()}"
            th:href="@{/people/{id} (id=${person.getPerson_id()})}">
@@ -12,5 +15,7 @@
     </div>
     <hr>
     <a href = "/people/new">Create new person</a>
+    <hr>
+    <a href="/">Back to menu</a>
 </body>
 </html>
