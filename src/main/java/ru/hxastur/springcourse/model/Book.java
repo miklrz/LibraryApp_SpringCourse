@@ -1,5 +1,6 @@
 package ru.hxastur.springcourse.model;
 
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component
