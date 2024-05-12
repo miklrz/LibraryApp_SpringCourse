@@ -26,6 +26,7 @@ public class PeopleController {
     @GetMapping("/{person_id}")
     public String show(Model model, @ModelAttribute Person person) {
         model.addAttribute("person", personDAO.show(person.getPerson_id()));
+        model.addAttribute("books", personDAO.getBooks(person.getPerson_id()));
         return "people/show";
     }
 
