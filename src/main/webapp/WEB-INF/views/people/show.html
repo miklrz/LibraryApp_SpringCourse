@@ -7,6 +7,7 @@
 <body>
     <p th:text="'Name: '+ ${person.getName()}">name</p>
     <p th:text="'Year of birth: '+ ${person.getYear_of_birth()}">year</p>
+
     <div th:if="${not #lists.isEmpty(books)}">
         <h3>List of person's books:</h3>
         <div th:each="book :${books}">
@@ -19,6 +20,7 @@
     <p th:if="${#lists.isEmpty(books)}">
         Person has 0 books
     </p>
+
     <hr>
     <a th:href="@{/people/{id}/edit(id=${person.getPerson_id()})}" th:text="Edit">edit</a>
     <hr>
