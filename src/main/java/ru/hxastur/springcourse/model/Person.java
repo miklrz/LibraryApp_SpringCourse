@@ -1,11 +1,20 @@
 package ru.hxastur.springcourse.model;
 
+import jakarta.validation.constraints.*;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Person {
     private int person_id;
+
+    @NotEmpty(message = "Name should not be empty")
+    @Size(min  = 1, max = 30, message = "Name should be greater than 1 and less than 30")
+    @Pattern(regexp = "[A-Z]\\w+ [A-Z]\\w+ [A-Z]\\w+", message="Name should be in this format: Name Surname Patronymic")
     private String name;
+
+//    @NotEmpty(message = "Year of birth should not be empty")
+    @Max(value = 2025, message="Year of birth should be less than 2025")
+    @Min(value = 1900, message="Year of birth should be grater than 1900")
     private int year_of_birth;
 
     public Person(){}

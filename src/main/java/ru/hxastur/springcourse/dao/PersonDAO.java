@@ -8,6 +8,7 @@ import ru.hxastur.springcourse.model.Book;
 import ru.hxastur.springcourse.model.Person;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PersonDAO {
@@ -26,6 +27,11 @@ public class PersonDAO {
         return jdbcTemplate.query("SELECT * FROM Person WHERE person_id = ?", new Object[]{person_id}
                 , new BeanPropertyRowMapper<>(Person.class))
                 .stream().findAny().orElse(null);
+    }
+
+    public Optional<Person> show(String name){
+        return jdbcTemplate.query("SELECT * FROM Person WHERE name = ?", new Object[]{name},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
     }
 
     public List<Book> getBooks(int person_id){
