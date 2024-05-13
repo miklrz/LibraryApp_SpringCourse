@@ -57,6 +57,12 @@ public class BooksController {
         return "redirect:/books";
     }
 
+    @PatchMapping("/{book_id}/clearOwner")
+    public String clearOwner(@PathVariable("book_id") int book_id){
+        bookDAO.clearOwner(book_id);
+        return "redirect:/books/{book_id}";
+    }
+
     @DeleteMapping("/{book_id}")
     public String delete(@PathVariable("book_id") int book_id){
         bookDAO.delete(book_id);
