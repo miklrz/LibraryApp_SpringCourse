@@ -9,7 +9,6 @@
     <p th:text="'Author: ' + ${book.getAuthor()}">author</p>
     <p th:text="'Year: ' + ${book.getYear()}">year</p>
     <p th:text="'Book_id: ' + ${book.getBook_id()}">book_id</p>
-    <p th:text="'Person_id: ' + ${book.getPerson_id()}">person</p>
     <div th:if="${person.getPerson_id() != 0}">
         <a        th:href ="@{/people/{person_id} (person_id=${person.getPerson_id()})}"
                   th:text="${person.getName()}">
