@@ -1,5 +1,9 @@
 package ru.hxastur.springcourse.model;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
@@ -8,8 +12,15 @@ public class Book {
     private int book_id;
     private int person_id;
 
+    @NotEmpty(message = "Title should not be empty")
+    @Size(min  = 1, max = 40, message = "Title should be greater than 1 and less than 40")
     private String title;
+
+    @NotEmpty(message = "Author should not be empty")
+    @Size(min = 2, max = 30, message = "Author name should be greater than 2 and less than 30")
     private String author;
+
+    @Max(value = 2025, message = "Year should be less than 2025")
     private int year;
 
     public Book(){}
