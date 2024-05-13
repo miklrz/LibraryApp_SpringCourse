@@ -29,6 +29,7 @@ public class BooksController {
     public String show(Model model, @ModelAttribute Book book){
         model.addAttribute("book", bookDAO.show(book.getBook_id()));
         model.addAttribute("person", personDAO.getPersonFromBook(book.getBook_id()));
+        System.out.println(personDAO.getPersonFromBook(book.getBook_id()));
         return "books/show";
     }
 

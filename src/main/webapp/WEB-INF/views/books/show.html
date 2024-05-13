@@ -10,10 +10,15 @@
     <p th:text="'Year: ' + ${book.getYear()}">year</p>
     <p th:text="'Book_id: ' + ${book.getBook_id()}">book_id</p>
     <p th:text="'Person_id: ' + ${book.getPerson_id()}">person</p>
-    <a        th:href ="@{/people/{person_id} (person_id=${person.getPerson_id()})}"
-              th:text="${person.getName()}">
-        person
-    </a>
+    <div th:if="${person.getPerson_id() != 0}">
+        <a        th:href ="@{/people/{person_id} (person_id=${person.getPerson_id()})}"
+                  th:text="${person.getName()}">
+            person
+        </a>
+    </div>
+    <div th:unless="${person.getPerson_id() != 0}">
+        <p>This book is free</p>
+    </div>
     <br>
     <a th:href="@{/books/{book_id}/edit(book_id=${book.getBook_id})}" th:text="Edit">edit</a>
     <hr>

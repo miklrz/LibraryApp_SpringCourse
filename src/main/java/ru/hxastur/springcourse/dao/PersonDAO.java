@@ -34,10 +34,11 @@ public class PersonDAO {
     }
 
     public Person getPersonFromBook(int book_id){
-        return jdbcTemplate.query("SELECT * FROM Person JOIN Book ON Person.person_id = Book.person_id WHERE book_id = ?",
-                new Object[]{book_id},
-                new BeanPropertyRowMapper<>(Person.class))
+        Person person = jdbcTemplate.query("SELECT * FROM Person JOIN Book ON Person.person_id = Book.person_id WHERE book_id = ?",
+                        new Object[]{book_id},
+                        new BeanPropertyRowMapper<>(Person.class))
                 .stream().findAny().orElse(null);
+        return person != null ? person : new Person(0,"default",0);
     }
 
     public void save(Person person){
