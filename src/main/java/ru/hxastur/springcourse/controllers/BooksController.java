@@ -28,6 +28,7 @@ public class BooksController {
     @GetMapping("/{book_id}")
     public String show(Model model, @ModelAttribute Book book){
         model.addAttribute("book", bookDAO.show(book.getBook_id()));
+        model.addAttribute("people", personDAO.index());
         model.addAttribute("person", personDAO.getPersonFromBook(book.getBook_id()));
         System.out.println(personDAO.getPersonFromBook(book.getBook_id()));
         return "books/show";
@@ -60,6 +61,12 @@ public class BooksController {
     @PatchMapping("/{book_id}/clearOwner")
     public String clearOwner(@PathVariable("book_id") int book_id){
         bookDAO.clearOwner(book_id);
+        return "redirect:/books/{book_id}";
+    }
+
+    @PatchMapping("/{book_id}/setOwner")
+    public String setOwner(@ModelAttribute Book book, @PathVariable("book_id") int book_id){
+        bookDAO.setOwner(book.getPerson_id(), book_id);
         return "redirect:/books/{book_id}";
     }
 
