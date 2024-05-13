@@ -28,8 +28,7 @@ public class BooksController {
     @GetMapping("/{book_id}")
     public String show(Model model, @ModelAttribute Book book){
         model.addAttribute("book", bookDAO.show(book.getBook_id()));
-        model.addAttribute("person", personDAO.show(book.getPerson_id()));
-        System.out.println(personDAO.show(book.getPerson_id()));
+        model.addAttribute("person", personDAO.getPersonFromBook(book.getBook_id()));
         return "books/show";
     }
 

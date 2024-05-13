@@ -33,6 +33,13 @@ public class PersonDAO {
                 new Object[]{person_id}, new BeanPropertyRowMapper<>(Book.class));
     }
 
+    public Person getPersonFromBook(int book_id){
+        return jdbcTemplate.query("SELECT * FROM Person JOIN Book ON Person.person_id = Book.person_id WHERE book_id = ?",
+                new Object[]{book_id},
+                new BeanPropertyRowMapper<>(Person.class))
+                .stream().findAny().orElse(null);
+    }
+
     public void save(Person person){
         jdbcTemplate.update("INSERT INTO Person(name, year_of_birth) VALUES(?,?)",
                 person.getName(), person.getYear_of_birth());
